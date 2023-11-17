@@ -54,13 +54,16 @@ public class Main {
 
     private static void solve(){
         for(int i = r1; i <= r2; i++){
-            if(i == r1 || i == r2){
-                for(int j = c1; j <= c2; j++){
+            for(int j = c1; j <= c2; j++){
+                if(i == r1 || i == r2){
                     rotate(i, j);
+                } else{
+                    if(j == c1 || j == c2){
+                        rotate(i, j);
+                    }else{
+                        grid[i][j].v2 = grid[i][j].v1;
+                    }
                 }
-            }else{
-                rotate(i, c1);
-                rotate(i, c2);
             }
         }
 
