@@ -67,14 +67,6 @@ public class Main {
             }
         }
 
-        // for(int i = 0; i < N; i++){
-        //     for(int j = 0; j < M; j++){
-        //         System.out.print(grid[i][j].v2+" ");
-        //     }
-        //     System.out.println();
-        // }
-        // System.out.println();
-
         // average
         for(int i = r1; i <= r2; i++){
             for(int j = c1; j <= c2; j++){
@@ -127,20 +119,3 @@ public class Main {
         return i>=r1 && i<=r2 && j>=c1 && j<=c2;
     }
 }
-// After #1 [2, 2, 4, 6]
-// 4 5 2 5 6 6 0 
-// 2 3 2 2 3 2 0 
-// 5 3 3 4 3 3 0 
-// 4 4 5 5 6. 4 0 
-
-// After rotate
-// 2 4 5 2 5 6 0 
-// 5 3 2 2 6 2 0 
-// 4 3 3 4 3 3 0 
-// 4 5 5 6 3. 4 0
-
-// After #2 [1, 1, 4, 5]
-// 3 3 3 3 4 6 0 
-// 3 3 3 3 3 2 0 
-// 4 3 3 3 3 3 0 
-// 4 4 4 4 4 4 0
