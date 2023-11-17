@@ -10,9 +10,9 @@ class Cell{
 }
 
 public class Main {
+    static final int[][] dirs = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
     static int N, M, Q, r1, c1, r2, c2;
     static int sum, num;
-    static boolean ver = false;
     static Cell[][] grid;
 
     public static void main(String[] args) throws IOException {
@@ -97,22 +97,16 @@ public class Main {
     private static void getAverage(int i, int j){
         sum = grid[i][j].v2;
         num = 1;
+        int ni, nj;
 
-        if(i>0){
-            sum += grid[i-1][j].v2;
-            num++;
-        }
-        if(i<N-1){
-            sum += grid[i+1][j].v2;
-            num++;
-        }
-        if(j>0){
-            sum += grid[i][j-1].v2;
-            num++;
-        }
-        if(j<M-1){
-            sum += grid[i][j+1].v2;
-            num++;
+        for(int[] dir: dirs){
+            ni = i+dir[0];
+            nj = j+dir[1];
+
+            if(ni >= 0 && ni < N && nj >= 0 && nj < M){
+                sum += grid[ni][nj].v2;
+                num++;
+            }
         }
 
         grid[i][j].v1 = sum / num;
