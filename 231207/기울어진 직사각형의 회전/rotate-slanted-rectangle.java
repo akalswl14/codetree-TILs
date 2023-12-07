@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+    // 반시계 방향 : 0-1-2-3 & 시계 방향 : 1-0-3-2
     final static int[][] dirs = {{-1, 1}, {-1, -1}, {1, -1}, {1, 1}};
     static int N, r, c, m1, m2, m3, m4, rotateDir; // dir이 1이면 시계 방향.
     static int[][] grid;
@@ -49,7 +50,7 @@ public class Main {
         bw.close();
     }
 
-    private static void couterClockwise(){
+    private static void couterClockwise(){ // 0-1-2-3
         for(int i = 0; i < 4; i++){
             for(int j = 0; j < m[i]; j++){
                 rotate(i);
@@ -57,17 +58,14 @@ public class Main {
         }
     }
 
-    private static void clockwise(){
-        for(int i = 3; i >= 0; i--){
-            for(int j = 0; j < m[i]; j++){
-                rotate(i);
+    private static void clockwise(){ // 1-0-3-2
+        int k;
+        int[] clockwisedirs = {1,0,3,2};
+        for(int i = 0; i < 4; i++){
+            k = clockwisedirs[i];
+            for(int j = 0; j < m[k]; j++){
+                rotate(k);
             }
-        }
-    }
-
-    private static void repeat(int dir, int m){
-        for(int i = 0; i < m; i++){
-            rotate(dir);
         }
     }
 
